@@ -1,9 +1,17 @@
 function Cargar_categorias() {
-    fetch('https://fakestoreapi.com/products/categories')
-            .then(res=>res.json())
-            .then(categorias=> {
-                imprimir_categorias(categorias)
-            })
+
+    async function categorias1(){
+        try{
+            const res = await fetch('https://fakestoreapi.com/products/categories');
+            const categorias = await res.json();
+            imprimir_categorias(categorias)
+        }catch(error){
+            console.error("Error ", error);
+
+        }
+    }
+    categorias1();
+
 }
 
 function imprimir_categorias(lista_categorias) {
@@ -12,9 +20,10 @@ function imprimir_categorias(lista_categorias) {
     lista_categorias.forEach(element => {
         
         let div = document.createElement("div")
+        div.classList = "item_categoria"
         div.innerHTML = `
-        <input type="checkbox" id="${element}">
-        <label for="${element}">${element}</label>
+        <input  type="checkbox" class="cuadro" id="${element}" >
+        <label for="${element}" class="txt"> ${element} </label >
         `
 
         div_informacion.appendChild(div)

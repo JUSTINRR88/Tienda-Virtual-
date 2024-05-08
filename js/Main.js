@@ -1,11 +1,12 @@
 import { Cargar_categorias } from "./Cargar_categorias.js";
 import { cargar_producto } from "./Cargar_productos.js";
+import { Cargar_categoria_especifica } from "./Cargar_categoria_especifica.js";
 
 
 let DOM = document.querySelector("#root")
 
 DOM.innerHTML = `
-    <header></header>
+    <header class="header"></header>
     <main class="body">
         <section id="div_producto_list"></section>
         <section id="div_summery_description"></section>
@@ -30,3 +31,4 @@ DOM.innerHTML = `
     funcion_asincronica()
 
 Cargar_categorias()    
+Cargar_categoria_especifica()
